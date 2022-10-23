@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm", "PySide6"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yin_yang"
+version = "3.3.0"
+description = "Auto Nightmode for KDE, Gnome, Budgie, VSCode, Atom and more"
+authors = [
+    { name = "oskarsh" }
+]
+maintainers = [
+    { name = "Lorenz Hoffmann", email = "l0drex@pm.me" }
+]
+urls = { "GitHub" = "https://github.com/oskarsh/Yin-Yang" }
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "PySide6",
+    "suntime",
+    "psutil"
+]
+optional-dependencies = { test = ["pytest", "flake8"] }
+
+[project.scripts]
+cli-name = "yin_yang:run_command_line"
+
+[project.gui-scripts]
+yin-yang = "yin_yang:run_gui"
