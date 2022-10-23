@@ -1,14 +1,13 @@
-from src.meta import Desktop
-from src.plugins import system, gtk, kvantum, wallpaper, custom
-from src.plugins import firefox, brave, gedit, only_office
-from src.plugins import vscode, atom, konsole
-from src.plugins import sound, notify
+from yin_yang.meta import Desktop
+from . import firefox, brave, gedit, only_office
+from . import sound, notify
+from . import system, gtk, kvantum, wallpaper, custom
+from . import vscode, atom, konsole
+from ._plugin import Plugin, ExternalPlugin
+
 
 # NOTE initialize your plugin over here:
 # The order in the list specifies the order in the config gui
-from src.plugins._plugin import Plugin, ExternalPlugin
-
-
 def get_plugins(desktop: Desktop) -> [Plugin]:
     return [
         system.System(desktop),

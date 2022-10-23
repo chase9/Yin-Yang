@@ -3,8 +3,8 @@ import subprocess
 from enum import Enum, auto
 from pathlib import Path
 
-from src.config import ConfigWatcher
-from src.meta import ConfigEvent, Modes
+from yin_yang.config import ConfigWatcher
+from yin_yang.meta import ConfigEvent, Modes
 
 logger = logging.getLogger(__name__)
 TIMER_PATH = str(Path.home()) + '/.local/share/systemd/user/yin_yang.timer'

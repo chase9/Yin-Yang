@@ -8,13 +8,13 @@ author: oskarsh
 date: 21.12.2018
 license: MIT
 """
-from datetime import datetime
 import logging
 import time
+from datetime import datetime
 from threading import Thread
 
-from src.meta import PluginKey
-from src.config import config, plugins
+from yin_yang.meta import PluginKey
+from .config import config, plugins
 
 logger = logging.getLogger(__name__)
 

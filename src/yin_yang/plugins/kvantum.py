@@ -1,9 +1,7 @@
-import itertools
-from os import scandir
-
-from src.plugins._plugin import PluginCommandline
-from pathlib import Path
 import os
+from pathlib import Path
+
+from ._plugin import PluginCommandline
 
 
 class Kvantum(PluginCommandline):

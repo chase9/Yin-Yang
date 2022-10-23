@@ -4,7 +4,7 @@ from os import scandir
 from os.path import isdir
 from pathlib import Path
 
-from src.plugins._plugin import Plugin
+from ._plugin import Plugin
 
 logger = logging.getLogger(__name__)
 

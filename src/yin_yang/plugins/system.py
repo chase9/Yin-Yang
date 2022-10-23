@@ -1,13 +1,13 @@
 import json
 import logging
-import subprocess
-import pwd
 import os
+import pwd
+import subprocess
 
 from PySide6.QtCore import QLocale
 
-from src.meta import Desktop
-from src.plugins._plugin import PluginDesktopDependent, PluginCommandline
+from yin_yang.meta import Desktop
+from ._plugin import PluginDesktopDependent, PluginCommandline
 
 logger = logging.getLogger(__name__)
 

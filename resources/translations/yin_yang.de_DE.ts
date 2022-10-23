@@ -4,32 +4,32 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/ui/main_window_connector.py" line="70"/>
+        <location filename="../../src/yin_yang/ui/main_window_connector.py" line="68"/>
         <source>You are using version {}</source>
         <translation>Sie verwenden Version {}</translation>
     </message>
     <message>
-        <location filename="../../src/ui/main_window_connector.py" line="171"/>
+        <location filename="../../src/yin_yang/ui/main_window_connector.py" line="164"/>
         <source>Dark mode will be active between {} and {}.</source>
         <translation>Dunkler Modus wird zwischen {} und {} aktiv sein.</translation>
     </message>
     <message>
-        <location filename="../../src/ui/main_window_connector.py" line="235"/>
+        <location filename="../../src/yin_yang/ui/main_window_connector.py" line="228"/>
         <source>Open light wallpaper</source>
         <translation>Öffne helles Hintergrundbild</translation>
     </message>
     <message>
-        <location filename="../../src/ui/main_window_connector.py" line="236"/>
+        <location filename="../../src/yin_yang/ui/main_window_connector.py" line="229"/>
         <source>Open dark wallpaper</source>
         <translation>Öffne dunkles Hintergrundbild</translation>
     </message>
     <message>
-        <location filename="../../src/ui/main_window_connector.py" line="268"/>
+        <location filename="../../src/yin_yang/ui/main_window_connector.py" line="273"/>
         <source>The settings have been modified. Do you want to save them?</source>
         <translation>Die Einstellungen wurden geändert. Möchten Sie sie speichern?</translation>
     </message>
     <message>
-        <location filename="../../src/ui/main_window_connector.py" line="268"/>
+        <location filename="../../src/yin_yang/ui/main_window_connector.py" line="273"/>
         <source>Unsaved changes</source>
         <translation>Ungespeicherte Änderungen</translation>
     </message>

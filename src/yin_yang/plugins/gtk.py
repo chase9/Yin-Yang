@@ -3,9 +3,9 @@ from configparser import ConfigParser
 from os import scandir, path
 from pathlib import Path
 
-from src.meta import Desktop
-from src.plugins._plugin import PluginDesktopDependent, Plugin, PluginCommandline
-from src.plugins.system import test_gnome_availability
+from yin_yang.meta import Desktop
+from ._plugin import PluginDesktopDependent, Plugin, PluginCommandline
+from .system import test_gnome_availability
 
 logger = logging.getLogger(__name__)
 

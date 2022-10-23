@@ -1,7 +1,7 @@
 #!/bin/env python3
 
-import sys
 import logging
+import sys
 from argparse import ArgumentParser
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
@@ -10,11 +10,10 @@ from PySide6 import QtWidgets
 from PySide6.QtCore import QTranslator, QLibraryInfo, QLocale
 from systemd import journal
 
-from src import daemon_handler
-from src.meta import ConfigEvent
-from src import yin_yang
-from src.config import config, Modes
-from src.ui import main_window_connector
+from yin_yang import daemon_handler
+from yin_yang.config import config
+from yin_yang.meta import ConfigEvent, Modes
+from yin_yang.ui import main_window_connector
 
 logger = logging.getLogger()
 
@@ -23,7 +22,7 @@ def setup_logger(use_systemd_journal: bool):
     if use_systemd_journal:
         logger.addHandler(journal.JournalHandler(SYSLOG_IDENTIFIER='yin_yang'))
 
-    # __debug__ is true when you run main.py without the -O argument (python main.py)
+    # __debug__ is true when you run __main__.py without the -O argument (python __main__.py)
     # noinspection PyUnreachableCode
     if __debug__:
         # noinspection SpellCheckingInspection
@@ -32,7 +31,7 @@ def setup_logger(use_systemd_journal: bool):
             format='%(asctime)s %(levelname)s - %(name)s: %(message)s'
         )
     else:
-        # if you run it with "python -O main.py" instead, debug is false
+        # if you run it with "python -O __main__.py" instead, debug is false
 
         # let the default logger print to the console
         # noinspection SpellCheckingInspection
