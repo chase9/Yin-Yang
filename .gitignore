@@ -2,10 +2,14 @@
 __pycache__
 build-test*
 build-ui-*
-.vscode
 src/build.py
-setup.py
 
-.idea/
+resources/translations/*.qm
+src/yin_yang/resources_rc.py
+src/yin_yang/ui/main_window.py
+
 venv/
 .venv/
+
+.vscode
+.idea/
