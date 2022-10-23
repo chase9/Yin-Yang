@@ -39,7 +39,7 @@ To install Yin-Yang:
 1. Install the dependencies: `systemd`, `python-systemd` and optionally `pyside6` (from your system package manager) for native widget style
 2. Copy and run the command below and follow the instructions:
 ```bash
-git clone https://github.com/oskarsh/Yin-Yang && cd Yin-Yang && ./scripts/install.sh
+pip install https://github.com/oskarsh/Yin-Yang.git
 ```
 
 ## Documentation
