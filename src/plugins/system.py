@@ -129,7 +129,7 @@ class _Mate(PluginCommandline):
     theme_directories = ['/usr/share/themes', f'{Path.home()}/.themes']
 
     def __init__(self):
-        super().__init__(['dconf', 'write', '/org/mate/marco/general/theme', '"\'{theme}\'"'])
+        super().__init__(['dconf', 'write', '/org/mate/marco/general/theme', '\'{theme}\''])
         self.theme_light = 'Yaru'
         self.theme_dark = 'Yaru-dark'
 
