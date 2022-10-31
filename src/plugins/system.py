@@ -157,5 +157,6 @@ class _Mate(PluginCommandline):
 
         return {}
 
+    @property
     def available(self):
         return self.check_command(['dconf', 'help'])
