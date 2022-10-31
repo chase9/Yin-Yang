@@ -155,7 +155,7 @@ class _Mate(PluginCommandline):
                     except KeyError:
                         continue
 
-        return {}
+        return {t: t for t in themes}
 
     @property
     def available(self):
