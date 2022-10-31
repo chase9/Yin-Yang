@@ -143,7 +143,7 @@ class _Mate(PluginCommandline):
 
             with os.scandir(directory) as entries:
                 for d in entries:
-                    index = d.name + '/index.theme'
+                    index = d.path + '/index.theme'
                     if not os.path.isfile(index):
                         continue
 
