@@ -1,4 +1,4 @@
-from meta import Desktop
+from src.meta import Desktop
 from src.plugins._plugin import PluginDesktopDependent, PluginCommandline
 
 
