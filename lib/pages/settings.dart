@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yin_yang/widgets/kdeSettings.dart';
+import 'package:yin_yang/widgets/kde_settings.dart';
 
 class Settings extends StatefulWidget {
-  Settings({Key key}) : super(key: key);
+  const Settings({super.key});
 
   @override
-  _SettingsState createState() => _SettingsState();
+  State<Settings> createState() => _SettingsState();
 }
 
 class _SettingsState extends State<Settings> {
@@ -17,7 +17,7 @@ class _SettingsState extends State<Settings> {
     super.initState();
     SharedPreferences.getInstance().then((prefs) {
       setState(() {
-        desktop = prefs.get('desktop');
+        desktop = prefs.getString('desktop') ?? 'KDE';
       });
     });
   }
@@ -25,11 +25,11 @@ class _SettingsState extends State<Settings> {
   Widget buildDesktopSettings() {
     switch (desktop) {
       case 'KDE':
-        return KDESettings();
+        return const KDESettings();
       case 'gnome':
-        return KDESettings();
+        return const KDESettings();
     }
-    return null;
+    return const KDESettings();
   }
 
   @override
@@ -41,26 +41,26 @@ class _SettingsState extends State<Settings> {
           children: <Widget>[
             Container(
                 alignment: Alignment.centerLeft,
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: TextButton.icon(
-                  label: Text(
+                  label: const Text(
                     'back',
                     style: TextStyle(fontSize: 15),
                   ),
                   style: TextButton.styleFrom(
-                      padding: EdgeInsets.fromLTRB(0, 20, 20, 0),
+                      padding: const EdgeInsets.fromLTRB(0, 20, 20, 0),
                       alignment: Alignment.centerRight),
                   onPressed: () => {Navigator.pop(context)},
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                 )),
             Container(
-                padding: EdgeInsets.fromLTRB(20, 5, 20, 0),
+                padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
                 height: MediaQuery.of(context).size.height * 0.8,
                 child: Column(
                   children: [
                     Container(
                       alignment: Alignment.centerLeft,
-                      child: Text(
+                      child: const Text(
                         "Settings",
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),

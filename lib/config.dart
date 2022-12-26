@@ -7,9 +7,7 @@ class Config {
   Config();
 
   getOS() async {
-    print('hello');
     // SharedPreferences prefs = await SharedPreferences.getInstance();
     String osString = await getOS();
-    print(osString);
   }
 }

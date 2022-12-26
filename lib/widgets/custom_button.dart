@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /* MyButton Custom Widget */
 class CustomButton extends StatelessWidget {
-  CustomButton({@required this.onPressed, @required this.label});
+  const CustomButton({super.key, required this.onPressed, required this.label});
 
   final GestureTapCallback onPressed;
   final String label;
@@ -12,15 +12,15 @@ class CustomButton extends StatelessWidget {
     return RawMaterialButton(
       fillColor: Colors.greenAccent,
       splashColor: Colors.grey,
+      onPressed: onPressed,
+      shape: const StadiumBorder(),
       child: Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[Text(label)],
         ),
       ),
-      onPressed: onPressed,
-      shape: const StadiumBorder(),
     );
   }
 }

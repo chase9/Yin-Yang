@@ -19,7 +19,6 @@ class KDE {
   }
 
   void switchToLight() async {
-    print('called');
     String theme = 'org.kde.breeze.desktop';
     await shell.run('lookandfeeltool -a $theme');
   }

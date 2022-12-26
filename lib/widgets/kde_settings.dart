@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 /* MyButton Custom Widget */
 class KDESettings extends StatelessWidget {
-  KDESettings();
+  const KDESettings({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 50, color: Colors.red, child: Text('KDE Settings'));
+        height: 50, color: Colors.red, child: const Text('KDE Settings'));
   }
 }

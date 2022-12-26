@@ -4,8 +4,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yin_yang/pages/home.dart';
 
 class RouteSplash extends StatefulWidget {
+  const RouteSplash({super.key});
+
   @override
-  _RouteSplashState createState() => _RouteSplashState();
+  State<RouteSplash> createState() => _RouteSplashState();
 }
 
 class _RouteSplashState extends State<RouteSplash> {
@@ -35,7 +37,7 @@ class _RouteSplashState extends State<RouteSplash> {
         prefs.setString('desktop', desktop);
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Home()),
+          MaterialPageRoute(builder: (context) => const Home()),
         );
       });
     });
@@ -43,6 +45,6 @@ class _RouteSplashState extends State<RouteSplash> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

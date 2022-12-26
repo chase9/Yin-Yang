@@ -4,11 +4,18 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.18.4 <3.0.0'
+  flutter: '>=3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size\
+      ref: 17d4710c17f4913137e7ec931f6e71eaef443363
   process_run: ^0.12.1
   provider: ^5.0.0
   shared_preferences: ^2.0.5
@@ -16,11 +23,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  window_size:
-    git:
-      url: git://github.com/google/flutter-desktop-embedding.git
-      path: plugins/window_size
+  flutter_lints: ^2.0.1
+
 flutter:
   assets:
-    - assets/icon.png
+    - resources/logo512.png
   uses-material-design: true
