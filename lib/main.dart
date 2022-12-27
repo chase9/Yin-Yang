@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yin_yang/pages/splash.dart';
+import 'package:yin_yang/pages/layout.dart';
 import 'package:yin_yang/theme/theme_notifier.dart';
 import 'package:provider/provider.dart';
 import 'package:yin_yang/theme/theme.dart';
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Yin-Yang',
       theme: themeNotifier.getTheme(),
-      home: const RouteSplash(),
+      home: const Layout(title: 'Yin-Yang'),
     );
   }
 }

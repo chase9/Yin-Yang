@@ -3,16 +3,32 @@ import 'package:process_run/shell.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yin_yang/pages/home.dart';
 
-class RouteSplash extends StatefulWidget {
-  const RouteSplash({super.key});
+import 'settings.dart';
+
+class Layout extends StatefulWidget {
+  const Layout({super.key, required this.title});
+
+  final String title;
 
   @override
-  State<RouteSplash> createState() => _RouteSplashState();
+  State<Layout> createState() => _LayoutState();
 }
 
-class _RouteSplashState extends State<RouteSplash> {
+class _LayoutState extends State<Layout> {
   bool loading = true;
   var shell = Shell();
+
+  final List<Tab> _tabs = [
+    Tab(
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [Icon(Icons.schedule), Text('Schedule')])),
+    Tab(
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [Icon(Icons.settings), Text('Settings')]))
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -35,16 +51,20 @@ class _RouteSplashState extends State<RouteSplash> {
           desktop = 'xfce';
         }
         prefs.setString('desktop', desktop);
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const Home()),
-        );
       });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return DefaultTabController(
+        length: _tabs.length,
+        child: Scaffold(
+            appBar: AppBar(
+                title: Text(widget.title),
+                bottom: TabBar(
+                  tabs: _tabs,
+                )),
+            body: const TabBarView(children: [Home(), Settings()])));
   }
 }
