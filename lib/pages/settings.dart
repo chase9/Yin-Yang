@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:yin_yang/widgets/dropdown_plugin_tile.dart';
 import 'package:yin_yang/widgets/kde_settings.dart';
+import 'package:yin_yang/widgets/plugin_tile.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -12,6 +14,8 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   String desktop = '';
 
+  final List<Widget> _plugins = [const KDESettings()];
+
   @override
   void initState() {
     super.initState();
@@ -20,6 +24,13 @@ class _SettingsState extends State<Settings> {
         desktop = prefs.getString('desktop') ?? 'KDE';
       });
     });
+  }
+
+  Widget _buildPluginList() {
+    return ListView(
+      padding: EdgeInsets.all(6.0),
+      children: _plugins,
+    );
   }
 
   Widget buildDesktopSettings() {
@@ -34,9 +45,6 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[buildDesktopSettings()],
-    );
+    return _buildPluginList();
   }
 }
