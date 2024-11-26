@@ -1,8 +1,12 @@
+import asyncio
 import logging
 import re
 import shutil
 from enum import Enum, auto
 from pathlib import Path
+
+from dbus_fast import Message, MessageType
+from dbus_fast.aio.message_bus import MessageBus
 
 from yin_yang import helpers
 
@@ -37,6 +41,31 @@ def create_files():
                         line,
                     )
                 )
+
+
+async def check_timer_exists():
+    bus = await MessageBus().connect()
+
+    reply = await bus.call(
+        Message(
+            destination='org.freedesktop.systemd1',
+            path='/org/freedesktop/systemd1',
+            interface='org.freedesktop.systemd1.Manager',
+            member='ListUnitFiles',
+        )
+    )
+
+    found_paths = []
+    if reply is not None and reply.message_type == MessageType.ERROR:
+        logger.error(reply.body[0])
+    elif reply is not None:
+        for item in reply.body[0]:
+            if "yin_yang" in item[0]:
+                found_paths.append(item)
+    if found_paths.count != 0:
+        return True
+    else:
+        return False
 
 
 def run_command(command, **kwargs):
