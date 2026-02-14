@@ -43,6 +43,22 @@ class Plugin(ABC):
         :return: Dict[intern_name, readable_name]
         """
         return {}
+    
+    def is_valid(self) -> bool:
+        """Check whether the current plugin configuration is valid
+        
+        If false, the plugin configuration will not be saved and the plugin gets disabled
+        
+        :return: True, if the current configuration is valid
+        """
+
+        if not (self.theme_light and self.theme_dark):
+            return False
+
+        if self.available_themes:
+            return True
+        
+        return True
 
     def set_mode(self, dark: bool) -> bool:
         """Set the dark or light theme
@@ -234,6 +250,9 @@ class PluginDesktopDependent(Plugin):
     def theme_dark(self, value):
         if self.strategy is not None:
             self.strategy.theme_dark = value
+    
+    def is_valid(self) -> bool:
+        return self.strategy.is_valid()
 
 
 class ExternalPlugin(Plugin):

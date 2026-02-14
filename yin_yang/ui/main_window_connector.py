@@ -260,14 +260,30 @@ class MainWindow(QtWidgets.QMainWindow):
         inputs_brave[i].setStyleSheet(f'background-color: {selected_color.name()};'
                                       f' color: {"white" if selected_color.lightness() <= 128 else "black"}')
 
-    def save_config_to_file(self, button):
-        """Saves the config to the file or restores values"""
+    def check_plugins(self) -> bool:
+        for plugin in plugins:
+            if not plugin.enabled:
+                continue
+            if not plugin.is_valid():
+                logger.error(f"Plugin {plugin.name} has invalid configuration!")
+                plugin.enabled = False
+                self.load_plugins()
+                return False
+        
+        return True
+
+    def save_config_to_file(self, button) -> bool:
+        """Saves the config to the file or restores values
+        :returns True application can be quit savely
+        """
 
         match button:
             case QDialogButtonBox.Apply:
-                success = config.save()
+                if not self.check_plugins():
+                    return False
+                if not config.save():
+                    return False
                 set_desired_theme(True)
-                return success
             case QDialogButtonBox.RestoreDefaults:
                 config.reset()
                 self.load()
@@ -278,6 +294,8 @@ class MainWindow(QtWidgets.QMainWindow):
             case _:
                 button = QDialogButtonBox.standardButton(self.ui.btn_box, button)
                 return self.save_config_to_file(button)
+        
+        return True
 
     def should_close(self) -> bool:
         """Returns true if the user wants to close the application"""
